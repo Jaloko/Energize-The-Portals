@@ -256,10 +256,27 @@ public class Game extends ApplicationAdapter {
 			}
 		} else if(gameState.equals("gameWon")) {
 			gameWonTrees.render(sb);
-
-			float w = Global.font.getBounds("Final Score: " + player.score).width;
 			
-			Global.font.draw(sb, "Final Score: " + player.score, Global.WIDTH / 2 - w / 2, Global.HEIGHT - 40);
+			if(player.portalCount >= 28) {
+				float w = Global.font.getBounds("You have reached the end of the game. Well Done!").width;
+				
+				Global.font.draw(sb, "You have reached the end of the game. Well Done!", Global.WIDTH / 2 - w / 2, Global.HEIGHT - 40);
+				
+				w = Global.font.getBounds("Final Score: " + player.score).width;
+				
+				Global.font.draw(sb, "Final Score: " + player.score, Global.WIDTH / 2 - w / 2, Global.HEIGHT - 80);
+			} else {
+				float w = Global.font.getBounds("Game Over!").width;
+				
+				Global.font.draw(sb, "Game Over!", Global.WIDTH / 2 - w / 2, Global.HEIGHT - 40);
+				
+				w = Global.font.getBounds("Score: " + player.score).width;
+				
+				Global.font.draw(sb, "Score: " + player.score, Global.WIDTH / 2 - w / 2, Global.HEIGHT - 80);
+			}
+
+			
+
 			
 			if(Gdx.input.getX() >=  Global.WIDTH / 2 - 100 && Gdx.input.getX() <=  Global.WIDTH / 2 - 100 + 200 &&
 				Math.abs(Gdx.input.getY() - Global.HEIGHT) >=  40 && Math.abs(Gdx.input.getY() - Global.HEIGHT) <=  40 + 40) {
