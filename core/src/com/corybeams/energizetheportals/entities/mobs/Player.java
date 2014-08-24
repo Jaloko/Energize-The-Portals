@@ -24,6 +24,8 @@ public class Player extends Mob {
 	//The amount of portals you have been past
 	public int portalCount = 0;
 	
+	public boolean endGame = false;
+	
 	public Animation moving_right;
 	public Animation moving_left;
 	
@@ -249,6 +251,7 @@ public class Player extends Mob {
 								if(w.tiles[(int) (w.beacons.get(14).x / w.tileSize)][(int) w.beacons.get(14).y / w.tileSize] == Types.BEACON_ENERGIZED) {
 									score += 50;
 									portal.play();
+									endGame = true;
 									Game.gameState = "gameWon";
 								}
 							}

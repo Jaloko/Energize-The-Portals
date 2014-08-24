@@ -71,7 +71,7 @@ public class Game extends ApplicationAdapter {
 		if(gameState.equals("menu")) {
 			menu.update();
 		} else if(gameState.equals("play")) {
-			if(player.position.y < 0) {
+			if(player.position.y < 0 || player.endGame) {
 				newGame();
 			}
 			if(player.recentlyUsedPortal) {
